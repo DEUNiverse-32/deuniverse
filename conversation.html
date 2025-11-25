@@ -20,4 +20,111 @@
     .desc {
       font-size: 0.9rem;
       color: #555;
-      marg
+      margin-bottom: 1.5rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 180px;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 0.95rem;
+      font-family: ui-monospace, monospace;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: 1px solid #333;
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    button:hover {
+      background: #f4f4f4;
+    }
+
+    .preview {
+      margin-top: 40px;
+      border-top: 2px solid #000;
+      padding-top: 30px;
+    }
+
+    .dialog-container {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      min-height: 200px;
+    }
+
+    .line {
+      max-width: 60%;
+      font-size: 20px;
+      line-height: 1.9;
+      white-space: pre-line;
+    }
+
+    .left {
+      align-self: flex-start;
+      text-align: left;
+    }
+
+    .right {
+      align-self: flex-end;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>좌우 대화 변환기</h1>
+  <p class="desc">
+    대사를 줄마다 한 줄씩 써서 붙여넣어. 버튼을 누르면 왼쪽/오른쪽으로 번갈아 배치해 줄게.
+  </p>
+
+  <textarea id="input" placeholder="예)&#10;그때도 넌 웃을 수 있을까?&#10;형, 나는 그게 미치도록 궁금했어.&#10;체서, 네 이름이야."></textarea>
+  <br>
+  <button id="convertBtn">좌우 대화로 변환</button>
+
+  <div class="preview">
+    <div id="dialogue" class="dialog-container"></div>
+  </div>
+
+  <script>
+    const input = document.getElementById('input');
+    const btn = document.getElementById('convertBtn');
+    const dialogueBox = document.getElementById('dialogue');
+
+    btn.addEventListener('click', () => {
+      const raw = input.value.trim();
+      if (!raw) {
+        dialogueBox.innerHTML = '대사를 먼저 입력해 줘.';
+        return;
+      }
+
+      const lines = raw
+        .split('\n')
+        .map(l => l.trim())
+        .filter(l => l.length > 0);
+
+      dialogueBox.innerHTML = '';
+
+      lines.forEach((line, idx) => {
+        const div = document.createElement('div');
+        div.classList.add('line');
+
+        if (idx % 2 === 0) {
+          div.classList.add('left');
+        } else {
+          div.classList.add('right');
+        }
+
+        div.textContent = line;
+        dialogueBox.appendChild(div);
+      });
+    });
+  </script>
+
+</body>
+</html>
