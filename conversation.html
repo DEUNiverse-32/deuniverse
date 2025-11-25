@@ -2,62 +2,22 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>좌우 대화 기록</title>
+  <title>좌우 대화 변환기</title>
   <style>
     body {
-      font-family: serif;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
       max-width: 900px;
-      margin: 60px auto;
+      margin: 40px auto;
       padding: 0 20px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .left {
-      align-self: flex-start;
-      text-align: left;
-      max-width: 60%;
-      font-size: 20px;
       line-height: 1.8;
     }
 
-    .right {
-      align-self: flex-end;
-      text-align: right;
-      max-width: 60%;
-      font-size: 20px;
-      line-height: 1.8;
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
     }
 
-    .quote {
-      white-space: pre-line;
-    }
-  </style>
-</head>
-<body>
-
-<div class="container" id="dialogue"></div>
-
-<script>
-const lines = [
-  { side: 'left', text: '그때도 넌 웃을 수 있을까?' },
-  { side: 'left', text: '형, 나는 그게 미치도록 궁금했어.' },
-  { side: 'right', text: '체서, 네 이름이야.' }
-];
-
-const box = document.getElementById('dialogue');
-
-lines.forEach(line => {
-  const div = document.createElement('div');
-  div.className = line.side;
-  div.innerHTML = `<div class="quote">"${line.text}"</div>`;
-  box.appendChild(div);
-});
-</script>
-
-</body>
-</html>
+    .desc {
+      font-size: 0.9rem;
+      color: #555;
+      marg
