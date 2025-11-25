@@ -130,4 +130,31 @@
       report += '\n';
 
       // 본문 정리
-      repo
+      report += '【대화 내용 정리】\n';
+      lines.forEach((line, idx) => {
+        report += (idx + 1) + '. ' + line + '\n';
+      });
+
+      return report;
+    }
+
+    convertBtn.addEventListener('click', () => {
+      const text = input.value.trim();
+      if (!text) {
+        output.textContent = '내용이 비어 있어. 캐릭터챗 대화를 먼저 붙여넣어 줘.';
+        return;
+      }
+
+      const report = makeReportFromText(text);
+      output.textContent = report;
+    });
+
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      output.textContent = '';
+      input.focus();
+    });
+  </script>
+
+</body>
+</html>
