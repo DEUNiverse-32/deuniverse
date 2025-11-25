@@ -1,2 +1,197 @@
-<h1>안녕하세요!</h1>
-<p>이곳은 제가 직접 만든 GitHub Pages 블로그입니다.</p>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>deuniverse - 작은 우주 기록</title>
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #111;
+      background-color: #fafafa;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 20px;
+    }
+
+    .site-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .site-subtitle {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    nav {
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      margin-right: 12px;
+      text-decoration: none;
+      color: #555;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 26px 0 12px;
+    }
+
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .post-card {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #e2e2e2;
+      background: #fff;
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .post-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      transform: translateY(-2px);
+    }
+
+    .post-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .post-meta {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 6px;
+    }
+
+    .post-desc {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .post-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .tools {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tool-link {
+      font-size: 0.9rem;
+    }
+
+    .tool-link a {
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1px;
+    }
+
+    .tool-link a:hover {
+      border-color: #333;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: #aaa;
+      border-top: 1px solid #eee;
+      padding-top: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="site-title">deuniverse</div>
+      <div class="site-subtitle">대화, 서사, 실험을 모아두는 작은 우주</div>
+
+      <nav>
+        <a href="./">home</a>
+        <a href="report.html">보고서 변환기</a>
+        <a href="side-dialogue.html">좌우 대화 변환기</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div class="section-title">최근 기록</div>
+        <div class="posts">
+          <!-- 필요하면 이 카드들을 복사해서 글처럼 써도 돼 -->
+          <article class="post-card">
+            <a href="#">
+              <div class="post-title">첫 번째 실험 – 캐릭터챗을 기록으로</div>
+              <div class="post-meta">임시 기록 · 링크만 나중에 연결</div>
+              <div class="post-desc">
+                캐릭터와의 대화를 그냥 흘려보내지 않고, 기록으로 남기는 연습.
+                보고서, 로그, 좌우 대화 같은 형식들을 테스트하는 공간.
+              </div>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="#">
+              <div class="post-title">대화를 정리하는 여러 가지 모양들</div>
+              <div class="post-meta">메모</div>
+              <div class="post-desc">
+                보고서, 일지, 편지, 독백, 속으로 삼킨 말까지.  
+                같은 내용이라도 어떤 틀에 담느냐에 따라 전혀 다른 이야기가 된다.
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">실험 도구</div>
+        <div class="tools">
+          <div class="tool-link">
+            → <a href="report.html">캐릭터챗 보고서 변환기</a>
+          </div>
+          <div class="tool-link">
+            → <a href="side-dialogue.html">좌우 대화 배치 변환기</a>
+          </div>
+          <!-- 나중에 도구 더 만들면 여기 줄만 하나씩 추가 -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      deuniverse · GitHub Pages
+    </footer>
+  </div>
+</body>
+</html>
