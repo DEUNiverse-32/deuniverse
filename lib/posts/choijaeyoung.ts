@@ -1,6 +1,7 @@
 export const choijaeyoung = {
     slug: 'choijaeyoung',
     title: '높고 빛나는 자리에 오르게 되리라',
+    subject: 'CHOI JAE-YOUNG',
     date: '2025-11-10',
     status: 'PSYCH_ANALYSIS',
     dangerLevel: 'EXTREME',
