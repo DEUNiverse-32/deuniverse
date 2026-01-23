@@ -43,7 +43,6 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
           </div>
         </header>
 
-        {/* 심리 분석에 어울리는 바탕체 스타일 본문 */}
         <article className="font-serif text-[13px] leading-8 whitespace-pre-wrap text-justify opacity-80">
           {post.content}
         </article>
