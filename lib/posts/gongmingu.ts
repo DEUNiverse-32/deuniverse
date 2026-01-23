@@ -1,7 +1,7 @@
 export const gongmingu = {
     slug: 'gongmingu',
     title: '해리성 둔주에 대하여',
-    subject: ;GONG MIN-GU',
+    subject: 'GONG MIN-GU',
     date: '2025-12-05',
     status: 'PSYCH_ANALYSIS',
     dangerLevel: 'HIGH',
