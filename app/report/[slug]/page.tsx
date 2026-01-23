@@ -1,10 +1,21 @@
-import { choijaeyoung } from '@/lib/posts/choijaeyoung';
 import Link from 'next/link';
+// 1. 여기서 파일을 다 불러와
+import { choijaeyoung } from '@/lib/posts/choijaeyoung';
+import { gongmingu } from '@/lib/posts/gongmingu'; 
 
 export default function ReportDetailPage({ params }: { params: { slug: string } }) {
-  // 주소가 'choijaeyoung'일 때 해당 데이터를 가져와
-  const post = params.slug === 'choijaeyoung' ? choijaeyoung : null;
+  
+  // 2. [우편함] 슬러그(주소)와 데이터를 연결해주는 곳이야
+  const posts: any = {
+    'choijaeyoung': choijaeyoung,
+    'gongmingu': gongmingu,
+    // 나중에 'leeshaedeun': leehaedeun 처럼 계속 추가하면 돼
+  };
 
+  // 3. 주소(slug)에 맞는 데이터를 여기서 쏙 꺼내와
+  const post = posts[params.slug];
+
+  // 데이터가 없으면 에러 화면
   if (!post) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center text-zinc-800 font-mono italic">
@@ -13,6 +24,20 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
     );
   }
 
+  // 위험 등급 스타일 함수
+  const getDangerStyle = (level: string) => {
+    switch (level?.toUpperCase()) {
+      case 'NEGLIGIBLE': return "text-zinc-500 border-zinc-800 bg-zinc-900/10";
+      case 'MODERATE':   return "text-yellow-600 border-yellow-900/30 bg-yellow-950/10";
+      case 'HIGH':       return "text-orange-600 border-orange-900/30 bg-orange-950/10";
+      case 'EXTREME':    return "text-red-600 border-red-900/30 bg-red-950/10 animate-pulse";
+      case 'CRITICAL':   return "text-red-900 border-red-950 bg-red-950/20 animate-pulse font-extrabold";
+      default:           return "text-red-500 border-red-900/30 bg-red-950/10";
+    }
+  };
+
+  const dangerLevel = post.dangerLevel || 'EXTREME';
+
   return (
     <div className="min-h-screen bg-black text-zinc-400 p-8 selection:bg-red-900/30 selection:text-zinc-200">
       <div className="max-w-xl mx-auto">
@@ -20,12 +45,10 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
           {`[ ← RETURN_TO_REPORT ]`}
         </Link>
         
-        {/* 위험 등급에 맞춰 보더 색상을 붉은색(red-900/50)으로 포인트를 줬어 */}
-        <header className="mb-16 border-l border-red-900/50 pl-6">
+        <header className="mb-16 border-l border-zinc-900 pl-6">
           <div className="flex items-center gap-3 mb-4">
-            {/* 위험 등급 태그 */}
-            <span className="text-[10px] text-red-500 font-mono border border-red-900/30 px-2 py-0.5 bg-red-950/10 tracking-[0.2em] animate-pulse">
-              DANGER_LEVEL: {post.dangerLevel || 'EXTREME'}
+            <span className={`text-[10px] font-mono border px-2 py-0.5 tracking-[0.2em] ${getDangerStyle(dangerLevel)}`}>
+              DANGER_LEVEL: {dangerLevel}
             </span>
             <span className="text-[10px] text-zinc-600 font-mono uppercase tracking-widest">
               Character Analysis
@@ -39,7 +62,8 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
           <div className="flex gap-4 text-[10px] text-zinc-700 tracking-[0.2em] font-mono uppercase">
             <span>Date: {post.date}</span>
             <span>|</span>
-            <span>Subject: Choi Jaeyoung</span>
+            {/* 여기 이름도 자동으로 바뀌게 수정했어 */}
+            <span>Subject: {post.title.split(' ')[0] || 'Unknown'}</span> 
           </div>
         </header>
 
