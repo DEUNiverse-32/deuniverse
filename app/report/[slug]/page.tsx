@@ -51,7 +51,7 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
         <footer className="mt-32 mb-10 text-center border-t border-zinc-900 pt-10">
           <p className="text-zinc-800 text-[9px] font-mono tracking-widest leading-loose uppercase">
             {`Confidential Information`} <br />
-            {`DEUNIVERSE CHARACTER ANALYSIS REPORT // SECTION_04`}
+            {`DEUNIVERSE CHARACTER ANALYSIS REPORT`}
           </p>
         </footer>
       </div>
