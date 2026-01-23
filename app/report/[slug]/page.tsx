@@ -62,8 +62,8 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
           <div className="flex gap-4 text-[10px] text-zinc-700 tracking-[0.2em] font-mono uppercase">
             <span>Date: {post.date}</span>
             <span>|</span>
-            {/* 여기 이름도 자동으로 바뀌게 수정했어 */}
-            <span>Subject: {post.title.split(' ')[0] || 'Unknown'}</span> 
+            {/* 이제 네가 적은 subject를 그대로 보여줄 거야. 없으면 UNKNOWN 출력. */}
+            <span>Subject: {post.subject || 'Unknown'}</span> 
           </div>
         </header>
 
