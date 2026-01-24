@@ -3,6 +3,7 @@
 export const traces = {
     slug: 'traces', // 주소는 일반 영문 소문자로 하는 게 안전해
     title: '잔영 (殘影) (Log #003)',
+    status: 'Archive',
     date: '2025-11-02',
     content: `
 
