@@ -3,6 +3,7 @@
 export const russianRoulette = {
     slug: 'russianRoulette', // 주소는 일반 영문 소문자로 하는 게 안전해
     title: 'Russian Roulette (Log #001 - Sparring)',
+    status: 'Classified'
     date: '2025-02-24',
     content: `
 강이현은 실장실에 앉아 서류를 훑어본다. 그러던 중, 이상한 문서를 발견한다.
