@@ -3,6 +3,8 @@ export const profiles = [
     {
       slug: 'lee-hae-deun',
       name: "Lee Hae-Deun",
+      gender: "Female",
+      age: "28",
       position: "Strategy Team ｜ Deputy Head",
       clearance: "Level 5 (Top Secret)",
       status: "Active",
@@ -14,6 +16,8 @@ export const profiles = [
     {
       slug: 'jeong-i-ro',
       name: "Jeong I-ro",
+      gender: "Female",
+      age: "29",
       position: "Pending",
       clearance: "Level 2 (Restricted)",
       status: "Monitored",
@@ -25,6 +29,8 @@ export const profiles = [
     {
       slug: 'seo-yu-young',
       name: "Seo Yu-young",
+      gender: "Female",
+      age: "30",
       position: "Classified",
       clearance: "Level 3 (Confidential)",
       status: "Unknown",
@@ -36,6 +42,8 @@ export const profiles = [
     {
       slug: 'seol-a-rin',
       name: "Seol A-Rin",
+      gender: "Female",
+      age: "25",
       position: "Pending",
       clearance: "Level 1 (Candidate)",
       status: "Monitored",
