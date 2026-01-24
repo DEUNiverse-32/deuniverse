@@ -46,7 +46,7 @@ export default function LogDetailPage({ params }: { params: { slug: string } }) 
           <div className="flex gap-3 text-[10px] text-zinc-600 tracking-widest uppercase">
             <span>Date: {post.date}</span>
             <span>|</span>
-            <span>Status: Classified</span>
+            <span>{post.status || 'OPEN'}</span>
           </div>
         </header>
 
