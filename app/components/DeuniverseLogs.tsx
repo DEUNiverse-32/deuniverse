@@ -3,9 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { goodbye } from '@/lib/posts/goodbye';
+import { hdk } from '@/lib/posts/hdk';
+import { breath } from '@/lib/posts/breath';
+import { breath2 } from '@/lib/posts/breath2';
+
 
 const DeuniverseLogs = () => {
-  const posts = [goodbye]; 
+  const posts = [goodbye, breath, breath2, hdk]; 
 
   return (
     <div className="p-4 border border-zinc-800 bg-black/30 font-sans text-sm text-zinc-300">
