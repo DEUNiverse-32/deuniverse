@@ -19,6 +19,13 @@ const InternalLogs = () => {
       status: 'ARCHIVED', 
       slug: '1010' 
     },
+    {
+      id: 'LOG-003',
+      title: '잔영(殘影)',
+      date: '2025-11-02',
+      status: 'ARCHIVED',
+      slug: 'traces'
+    }
   ];
 
   return (
