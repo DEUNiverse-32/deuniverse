@@ -32,5 +32,16 @@ export const profiles = [
       image: "/YU.png", 
       internalNote: "Signal lost since last operation. High risk of neutralization.",
       identCode: "009-YUYONG"
+    },
+    {
+      slug: 'seol-a-rin',
+      name: "Seol A-Rin",
+      position: "Pending",
+      clearance: "Level 1 (Candidate)",
+      status: "Monitored",
+      affiliation: "Unknown", // 소속 불명 처리
+      image: "/AR.png", 
+      internalNote: "No distinctive aptitudes detected. Low priority surveillance.",
+      identCode: "096-ARIN"
     }
   ];
