@@ -66,7 +66,7 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
 
         {/* [수정됨] *** 을 만나면 멋진 구분선으로 바꿔주는 코드 적용 */}
         <article className="font-serif text-[13px] leading-8 text-justify opacity-80">
-          {post.content.split('***').map((part: string, index: number, array: string[]) => (
+          {post.content.split('* * *').map((part: string, index: number, array: string[]) => (
             <React.Fragment key={index}>
               {/* 일반 텍스트 부분 */}
               <span className="whitespace-pre-wrap">{part}</span>
