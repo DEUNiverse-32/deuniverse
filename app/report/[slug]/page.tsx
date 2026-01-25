@@ -1,21 +1,19 @@
+import React from 'react'; // React 기능을 쓰기 위해 추가
 import Link from 'next/link';
-// 1. 여기서 파일을 다 불러와
 import { choijaeyoung } from '@/lib/posts/choijaeyoung';
 import { gongmingu } from '@/lib/posts/gongmingu'; 
 
 export default function ReportDetailPage({ params }: { params: { slug: string } }) {
   
-  // 2. [우편함] 슬러그(주소)와 데이터를 연결해주는 곳이야
+  // [우편함] 슬러그와 데이터 연결
   const posts: any = {
     'choijaeyoung': choijaeyoung,
     'gongmingu': gongmingu,
-    // 나중에 'leeshaedeun': leehaedeun 처럼 계속 추가하면 돼
   };
 
-  // 3. 주소(slug)에 맞는 데이터를 여기서 쏙 꺼내와
   const post = posts[params.slug];
 
-  // 데이터가 없으면 에러 화면
+  // 데이터 없음 에러 처리
   if (!post) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center text-zinc-800 font-mono italic">
@@ -62,13 +60,27 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
           <div className="flex gap-4 text-[10px] text-zinc-700 tracking-[0.2em] font-mono uppercase">
             <span>Date: {post.date}</span>
             <span>|</span>
-            {/* 이제 네가 적은 subject를 그대로 보여줄 거야. 없으면 UNKNOWN 출력. */}
             <span>Subject: {post.subject || 'Unknown'}</span> 
           </div>
         </header>
 
-        <article className="font-serif text-[13px] leading-8 whitespace-pre-wrap text-justify opacity-80">
-          {post.content}
+        {/* [수정됨] *** 을 만나면 멋진 구분선으로 바꿔주는 코드 적용 */}
+        <article className="font-serif text-[13px] leading-8 text-justify opacity-80">
+          {post.content.split('***').map((part: string, index: number, array: string[]) => (
+            <React.Fragment key={index}>
+              {/* 일반 텍스트 부분 */}
+              <span className="whitespace-pre-wrap">{part}</span>
+              
+              {/* 별표 3개(***)가 있던 자리에 들어갈 디자인 */}
+              {index < array.length - 1 && (
+                <div className="w-full text-center py-12 select-none animate-in fade-in duration-1000">
+                  <span className="text-zinc-600 font-serif text-xs tracking-[1.2em] opacity-60">
+                    * * *
+                  </span>
+                </div>
+              )}
+            </React.Fragment>
+          ))}
         </article>
 
         <footer className="mt-32 mb-10 text-center border-t border-zinc-900 pt-10">
