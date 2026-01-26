@@ -69,3 +69,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #7f1d1d;
 }
+/* app/globals.css 맨 아래에 추가 */
+
+/* 사이트 전체 드래그(선택) 금지 */
+body {
+  -webkit-user-select: none; /* 크롬, 사파리 */
+  -moz-user-select: none;    /* 파이어폭스 */
+  -ms-user-select: none;     /* 인터넷 익스플로러 */
+  user-select: none;         /* 표준 */
+}
