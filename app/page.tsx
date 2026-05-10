@@ -82,21 +82,21 @@ function TerminalContent() {
 
   if (!isAuthorized && !isAuthenticating) {
     return (
-      <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0c0c0e] text-slate-100 p-6 font-mono">
-        <div className="max-w-2xl w-full border border-red-900/40 p-10 bg-[#0f0f12] shadow-2xl relative">
+      <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#4f5863] text-slate-100 p-6 font-mono">
+        <div className="max-w-2xl w-full border border-slate-500/50 p-10 bg-[#41474e] shadow-2xl relative">
           <div className="absolute top-4 right-6 flex items-center space-x-2">
-            <span className="text-[10px] text-red-700 tracking-widest animate-pulse">● LIVE</span>
+            <span className="text-[10px] text-[#7a4b4b] tracking-widest animate-pulse">● LIVE</span>
             <span className="text-[11px] text-slate-200 font-bold">{currentTime}</span>
           </div>
           <div className="relative z-10 flex flex-col items-center mt-4">
-            <h1 className="w-full text-center text-red-600 font-bold text-xs mb-8 border-b border-red-900/30 pb-4 tracking-[0.4em]">
+            <h1 className="w-full text-center text-slate-200 font-bold text-xs mb-8 border-b border-slate-500/40 pb-4 tracking-[0.4em]">
               [ TERMINAL ACCESS RESTRICTED ]
             </h1>
             <div className="text-center leading-8 text-[13px] mb-12 min-h-[5rem] tracking-wider uppercase font-bold">
               <p className="text-slate-100">{typedText1}</p>
-              <p className="text-red-700 mt-2">{typedText2}</p>
+              <p className="text-slate-300 mt-2">{typedText2}</p>
             </div>
-            <button onClick={handleAuthorize} className="w-full max-w-xs py-5 border border-slate-700 text-slate-100 hover:border-red-700 hover:bg-red-900/10 transition-all text-[11px] tracking-[0.6em] uppercase font-bold text-center">
+            <button onClick={handleAuthorize} className="w-full max-w-xs py-5 border border-slate-700 text-slate-100 hover:border-slate-300 hover:bg-white/10 transition-all text-[11px] tracking-[0.6em] uppercase font-bold text-center">
               ACCESS GRANTED
             </button>
           </div>
@@ -107,19 +107,19 @@ function TerminalContent() {
 
   if (isAuthenticating) {
     return (
-      <div className="fixed inset-0 z-[120] flex flex-col items-center justify-center bg-[#0c0c0e] font-mono text-center">
-        <span className="text-red-700 text-[11px] tracking-[1em] mb-8 animate-pulse uppercase font-bold">Establishing Secure Node...</span>
+      <div className="fixed inset-0 z-[120] flex flex-col items-center justify-center bg-[#4f5863] font-mono text-center">
+        <span className="text-slate-300 text-[11px] tracking-[1em] mb-8 animate-pulse uppercase font-bold">Establishing Secure Node...</span>
         <div className="w-72 h-[1px] bg-slate-900 relative overflow-hidden mx-auto">
-          <div className="absolute inset-0 bg-red-700 animate-loading-bar" />
+          <div className="absolute inset-0 bg-slate-300 animate-loading-bar" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f1eb] text-slate-800 font-mono selection:bg-zinc-300 selection:text-zinc-900">
+    <div className="min-h-screen bg-[#a8afb7] text-[#111827] font-mono selection:bg-slate-400 selection:text-slate-950">
       <main className="container mx-auto px-6 py-20 max-w-4xl flex flex-col items-center">
-        <div className="w-full mb-20 text-center border-b border-zinc-300 pb-10">
+        <div className="w-full mb-20 text-center border-b border-[#7b838c] pb-10">
           <Header />
         </div>
 
@@ -135,14 +135,28 @@ function TerminalContent() {
                     setIsLoadingTab(false); 
                   }, 700); 
                 }}
-                className="py-7 px-10 border border-zinc-300 bg-white/50 text-zinc-700 hover:border-zinc-500 hover:text-zinc-950 transition-all text-left text-[16px] tracking-[0.5em] font-extrabold group"
+                className="py-4 px-10 border border-[#4f5863] bg-[#9ea7b1]/28 text-[#101827] hover:bg-[#b7bec6]/55 hover:border-[#41474e] hover:text-black hover:shadow-[0_0_24px_rgba(0,0,0,0.10)] transition-all duration-300 text-left text-[16px] tracking-[0.5em] font-extrabold group"
               >
-                <span className="group-hover:translate-x-2 inline-block transition-transform duration-300">{label}</span>
+                <div className="group-hover:translate-x-2 transition-transform duration-300">
+                  <span className="block">
+                    {label}
+                  </span>
+
+                 <span className="block mt-1 text-[9px] tracking-[0.25em] text-slate-600 font-normal">
+                    {label === 'PROFILE' && 'SUBJECT IDENTITY FILE'}
+                    {label === 'LOG' && 'INTERNAL MEMORY RECORDS'}
+                    {label === 'REPORT' && 'CLASSIFIED OBSERVATION'}
+                    {label === 'DEUNIVERSE' && 'PRIVATE ARCHIVE NODE'}
+                    {label === 'BOOK' && 'TEXTUAL REFERENCES'}
+                    {label === 'DATA' && 'RAW DATA STORAGE'}
+                    {label === 'ETC.' && 'UNSORTED MATERIALS'}
+                 </span>
+                </div>
               </button>
             ))}
             <button
               onClick={handleExternalLink}
-              className="mt-8 py-7 px-10 border border-zinc-300 bg-white/50 text-zinc-500 hover:border-zinc-500 hover:text-zinc-900 transition-all text-left text-[16px] tracking-[0.5em] font-extrabold"
+              className="mt-8 py-5 px-10 border border-[#4f5863] bg-[#9ea7b1]/28 text-[#101827] hover:bg-[#b7bec6]/55 hover:border-[#41474e] hover:text-black hover:shadow-[0_0_24px_rgba(0,0,0,0.10)] transition-all duration-300 text-left text-[16px] tracking-[0.5em] font-extrabold"
             >
               EXTERNAL MEMORY
             </button>
@@ -154,7 +168,7 @@ function TerminalContent() {
                 setActiveTab(null);
                 window.history.pushState({}, '', '/');
               }}
-              className="mb-16 text-[12px] text-red-900 hover:text-red-600 tracking-[0.6em] uppercase transition-colors font-bold flex items-center"
+              className="mb-16 text-[12px] text-slate-700 hover:text-slate-950 tracking-[0.6em] uppercase transition-colors font-bold flex items-center"
             >
               [ ← RETURN_TO_TERMINAL ]
             </button>
@@ -162,7 +176,7 @@ function TerminalContent() {
             <div className="relative min-h-[400px]">
               {isLoadingTab ? (
                 <div className="flex justify-center py-32 animate-pulse">
-                  <div className="h-[1px] w-40 bg-red-900 animate-loading-bar" />
+                  <div className="h-[1px] w-40 bg-slate-700 animate-loading-bar" />
                 </div>
               ) : (
                 <>
@@ -199,7 +213,7 @@ function TerminalContent() {
 // 잊지 말고 Home 함수와 Suspense를 꼭 포함시켜야 합니다.
 export default function Home() {
   return (
-    <Suspense fallback={<div className="bg-[#f5f1eb] min-h-screen" />}>
+    <Suspense fallback={<div className="bg-[#a8afb7] min-h-screen" />}>
       <TerminalContent />
     </Suspense>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { russianRoulette } from '@/lib/posts/russianroulette';
 import { traces } from '@/lib/posts/traces';
+import { HBD } from '@/lib/posts/HBD';
 import Link from 'next/link';
 
 export default function LogDetailPage({ params }: { params: { slug: string } }) {
@@ -9,14 +10,16 @@ export default function LogDetailPage({ params }: { params: { slug: string } }) 
   const posts: any = {
     'russianRoulette': russianRoulette,
     'traces': traces,
+    'HBD': HBD,
   };
 
   const post = posts[params.slug];
+  const sections = post.content.split('* * *');
 
   // 에러 처리 (데이터가 없을 때)
   if (!post) {
     return (
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center font-sans text-zinc-700 gap-6">
+      <div className="min-h-screen bg-[#a8afb7] flex flex-col items-center justify-center font-sans text-zinc-700 gap-6">
         <span>{`[ ERROR: DATA_NOT_FOUND ]`}</span>
         
         <Link 
@@ -30,20 +33,20 @@ export default function LogDetailPage({ params }: { params: { slug: string } }) 
   }
 
   return (
-    <div className="min-h-screen bg-black text-zinc-300 p-8 selection:bg-zinc-800 selection:text-zinc-100">
+    <div className="min-h-screen bg-[#a8afb7] text-[#111827] p-8 selection:bg-[#5f6b78] selection:text-slate-950">
       <div className="max-w-xl mx-auto">
         
         {/* 뒤로 가기 버튼 */}
-        <Link href="/?tab=log" className="text-zinc-600 hover:text-zinc-400 mb-12 inline-block transition-colors font-sans text-xs tracking-widest">
+        <Link href="/?tab=log" className="text-[#23384f] hover:text-[#111827] mb-12 inline-block transition-colors font-mono text-xs tracking-widest">
           {`[ ← RETURN_TO_LOGS ]`}
         </Link>
         
         {/* 헤더 영역 */}
-        <header className="mb-12 border-l border-zinc-800 pl-6 font-sans">
-          <h1 className="text-xl font-bold text-zinc-100 mb-2 tracking-tight">
+        <header className="mb-12 border-l border-[#4f5863] pl-6 font-mono">
+          <h1 className="text-xl font-bold text-[#111827] mb-2 tracking-tight">
             {post.title}
           </h1>
-          <div className="flex gap-3 text-[10px] text-zinc-600 tracking-widest uppercase">
+          <div className="flex gap-3 text-[10px] text-[#5f6b78] tracking-widest uppercase">
             <span>Date: {post.date}</span>
             <span>|</span>
             <span>{post.status || 'OPEN'}</span>
@@ -51,25 +54,59 @@ export default function LogDetailPage({ params }: { params: { slug: string } }) 
         </header>
 
         {/* 본문 영역 (*** 자동 변환 기능 추가됨) */}
-        <article className="font-sans text-sm leading-7 text-zinc-400 text-justify">
-          {post.content.split('* * *').map((part: string, index: number, array: string[]) => (
-            <React.Fragment key={index}>
-              {/* 일반 텍스트 부분 */}
-              <span className="whitespace-pre-wrap">{part}</span>
-              
-              {/* 별표 3개를 만났을 때 보여줄 디자인 */}
-              {index < array.length - 1 && (
-                <div className="w-full text-center py-12 select-none animate-in fade-in duration-1000">
-                  <span className="text-zinc-600 font-serif text-xs tracking-[1.2em] opacity-60">
-                    * * *
-                  </span>
-                </div>
-              )}
+        <article className="font-sans text-sm leading-8 text-[#111827] text-justify">
+        {sections.map((section: string, sectionIndex: number) => {
+            
+            const lines = section.split(/\r?\n/);
+            let isOffset = false;
+
+            return (
+              <React.Fragment key={sectionIndex}>
+
+                {lines.map((line:string, lineIndex: number) => {
+
+                  if (line.trim() === '[[offset]]') {
+                    isOffset = true;
+                    return null;
+                  }
+
+                  if (line.trim() === '[[/offset]]') {
+                    isOffset = false;
+                    return null;
+                  }
+
+                  if (!line.trim()) {
+                    return <div key={lineIndex} className="h-6" />;
+                  }
+
+                  return (
+                    <p
+                      key={lineIndex}
+                      className={
+                        isOffset
+                          ? 'ml-40 italic opacity-90 my-10 whitespace-pre-wrap text-right'
+                          : 'whitespace-pre-wrap mb-6'
+                      }
+                    >
+                      {line}
+                    </p>  
+                  );
+                })}
+
+                {sectionIndex < sections.length - 1 && (
+                  <div className="w-full text-center py-12 select-none">
+                    <span className="text-[#5f6b78] font-serif text-xs tracking-[1.2em] opacity-70">
+                      * * *
+                    </span>
+                  </div>
+               )}
+
             </React.Fragment>
-          ))}
+            );
+          })}
         </article>
 
-        <footer className="mt-24 pt-8 border-t border-zinc-900 text-zinc-800 text-[10px] text-center font-sans tracking-[0.2em]">
+        <footer className="mt-24 pt-8 border-t border-[#4f5863]/40 text-[#5f6b78] text-[10px] text-center font-mono tracking-[0.2em]">
           {`© DEUNIVERSE ｜ AUTHORIZED_PERSONNEL_ONLY`}
         </footer>
       </div>

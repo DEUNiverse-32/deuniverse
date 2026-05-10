@@ -35,24 +35,24 @@ const Header: React.FC = () => {
       className="flex flex-col items-center justify-center text-center space-y-4 py-8"
     >
       <div className="relative group">
-        <h1 className="text-7xl md:text-9xl font-industrial font-bold tracking-tighter text-white leading-none uppercase">
+        <h1 className="text-7xl md:text-9xl font-industrial font-bold tracking-tighter text-[#d1d6dc] leading-none uppercase">
           DEUNiverse
         </h1>
         <motion.div 
-          className="absolute -bottom-1 left-0 h-[3px] bg-red-900/60"
+          className="absolute -bottom-1 left-0 h-[3px] bg-[#4e565e]/70"
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ delay: 1, duration: 2, ease: "circOut" }}
         />
       </div>
       
-      <div className="font-mono text-lg md:text-xl tracking-[0.4em] text-slate-500 font-light bg-black/40 px-6 py-2 border border-slate-800">
+      <div className="font-mono text-lg md:text-xl tracking-[0.4em] text-[#5f6b78] font-light bg-[#9ea7b1]/30 px-6 py-2 border border-[#7b838c]">
         {time}
       </div>
 
       <div className="flex items-center space-x-2">
-        <div className="w-1.5 h-1.5 rounded-full bg-red-700 animate-pulse"></div>
-        <span className="text-[10px] uppercase tracking-[0.3em] text-red-900 font-bold opacity-80">Terminal Secure</span>
+        <div className="w-1.5 h-1.5 rounded-full bg-[#7a4b4b] animate-pulse"></div>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-[#7a4b4b] font-bold opacity-80">Terminal Secure</span>
       </div>
     </motion.header>
   );

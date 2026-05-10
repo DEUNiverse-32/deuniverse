@@ -25,22 +25,29 @@ const InternalLogs = () => {
       date: '2025-11-02',
       status: 'ARCHIVED',
       slug: 'traces'
+    },
+    {
+      id: 'LOG-004',
+      title: '생일 축하해',
+      date: '2026-03-02',
+      status: 'ARCHIVED',
+      slug: 'HBD'
     }
   ];
 
   return (
-    <div className="p-4 border border-zinc-800 bg-black/50 font-mono text-sm text-zinc-200">
-      <div className="mb-4 text-zinc-500 border-b border-zinc-800 pb-2">
+    <div className="p-4 border border-[#4f5863] bg-[#8f98a3]/35 backdrop-blur-xl font-mono text-sm shadow-[0_0_20px_rgba(0,0,0,0.06)]">
+      <div className="mb-4 text-[#5f6b78] border-b border-[#4f5863]/40 pb-3 tracking-[0.2em] text-[11px] uppercase">
         {`> LOG_ARCHIVE`}
       </div>
       
-      <div className="space-y-2">
+      <div className="space-y-1">
         {logs.map((log) => (
           <Link key={log.id} href={`/logs/${log.slug}`}>
-            <div className="flex justify-between hover:bg-zinc-900 p-2 cursor-pointer transition-colors border-b border-zinc-900/50 mb-1">
-              <span className="text-zinc-400">[{log.id}]</span>
-              <span className="text-zinc-200 flex-1 ml-4">{log.title}</span>
-              <span className="text-zinc-600">{log.status}</span>
+            <div className="flex justify-between items-center px-3 py-4 border-b border-[#4f5863]/25 hover:bg-[#b7bec6]/20 transition-all duration-300 cursor-pointer group">
+              <span className="text-[#5f6b78] tracking-[0.1em]">[{log.id}]</span>
+              <span className="text-[#111827] flex-1 ml-6 tracking-wide group-hover:translate-x-1 transition-transform">{log.title}</span>
+              <span className="text-[#7a4b4b] text-[11px] tracking-[0.2em] uppercase opacity-70">{log.status}</span>
             </div>
           </Link>
         ))}

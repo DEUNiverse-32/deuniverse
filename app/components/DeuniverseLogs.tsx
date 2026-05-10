@@ -12,26 +12,26 @@ const DeuniverseLogs = () => {
   const posts = [goodbye, breath, breath2, hdk]; 
 
   return (
-    <div className="p-4 border border-zinc-800 bg-black/30 font-sans text-sm text-zinc-300">
-      <div className="mb-4 text-zinc-500 border-b border-zinc-800 pb-2 font-mono italic">
+    <div className="p-4 border border-[#4f5863] bg-[#8f98a3]/35 backdrop-blur-xl font-sans text-sm text-zinc-300">
+      <div className="mb-4 text-[#5f6b78] border-b border-[#4f5863]/40 pb-2 font-mono italic">
         {`DEUNIVERSE_ARCHIVE`}
       </div>
       
       <div className="space-y-1">
         {posts.map((post) => (
           <Link key={post.slug} href={`/deuniverse/${post.slug}`}>
-            <div className="group flex justify-between hover:bg-zinc-900/50 p-3 cursor-pointer transition-all border border-transparent hover:border-zinc-800">
+            <div className="group flex justify-between hover:bg-[#b7bec6]/20 p-3 cursor-pointer transition-all border border-transparent hover:border-[#4f5863]/30">
               <div className="flex flex-col">
                 {/* 제목: 강조하고 싶은 부분 */}
-                <span className="text-zinc-200 font-medium group-hover:text-white mb-1 transition-colors">
+                <span className="text-[#111827] font-medium group-hover:translate-x-1 mb-1 transition-all duration-300">
                   {post.title}
                 </span>
                 {/* 한글 부제와 날짜 */}
-                <span className="text-zinc-600 text-[10px] tracking-tighter">
+                <span className="text-[#5f6b78] text-[10px] tracking-[0.15em]">
                 RECORDED ON ｜ {post.date}
                 </span>
               </div>
-              <span className="text-[10px] text-zinc-700 self-center font-mono italic">
+              <span className="text-[10px] text-[#5f6b78] self-center font-mono italic">
                 {`[ OPEN_FILE ]`}
               </span>
             </div>
