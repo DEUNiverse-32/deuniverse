@@ -1,4 +1,4 @@
-export const gongmingu = {
+export const sosaeon = {
     slug: 'sosaeon',
     title: '소사언 탐구 생활',
     subject: 'SO SA-EON',
