@@ -117,9 +117,9 @@ function TerminalContent() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0c0c0e] text-slate-100 font-mono selection:bg-red-900 selection:text-white">
+    <div className="min-h-screen bg-[#f5f1eb] text-slate-800 font-mono selection:bg-zinc-300 selection:text-zinc-900">
       <main className="container mx-auto px-6 py-20 max-w-4xl flex flex-col items-center">
-        <div className="w-full mb-20 text-center border-b border-zinc-900 pb-10">
+        <div className="w-full mb-20 text-center border-b border-zinc-300 pb-10">
           <Header />
         </div>
 
@@ -135,14 +135,14 @@ function TerminalContent() {
                     setIsLoadingTab(false); 
                   }, 700); 
                 }}
-                className="py-7 px-10 border border-slate-800 bg-black/40 text-slate-300 hover:border-red-900/50 hover:text-white transition-all text-left text-[16px] tracking-[0.5em] font-extrabold group"
+                className="py-7 px-10 border border-zinc-300 bg-white/50 text-zinc-700 hover:border-zinc-500 hover:text-zinc-950 transition-all text-left text-[16px] tracking-[0.5em] font-extrabold group"
               >
                 <span className="group-hover:translate-x-2 inline-block transition-transform duration-300">{label}</span>
               </button>
             ))}
             <button
               onClick={handleExternalLink}
-              className="mt-8 py-7 px-10 border border-slate-800 bg-black/40 text-slate-500 hover:border-red-950/40 hover:text-red-900 transition-all text-left text-[16px] tracking-[0.5em] font-extrabold"
+              className="mt-8 py-7 px-10 border border-zinc-300 bg-white/50 text-zinc-500 hover:border-zinc-500 hover:text-zinc-900 transition-all text-left text-[16px] tracking-[0.5em] font-extrabold"
             >
               EXTERNAL MEMORY
             </button>
@@ -199,7 +199,7 @@ function TerminalContent() {
 // 잊지 말고 Home 함수와 Suspense를 꼭 포함시켜야 합니다.
 export default function Home() {
   return (
-    <Suspense fallback={<div className="bg-black min-h-screen" />}>
+    <Suspense fallback={<div className="bg-[#f5f1eb] min-h-screen" />}>
       <TerminalContent />
     </Suspense>
   );
