@@ -6,5 +6,5 @@ export const sosaeon = {
     status: 'PSYCH_ANALYSIS',
     dangerLevel: 'MODERATE',
     content: `
-    `
+    추후 추가 예정`
 };
