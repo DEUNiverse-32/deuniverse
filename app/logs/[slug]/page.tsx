@@ -109,6 +109,14 @@ export default function LogDetailPage({ params }: { params: { slug: string } }) 
         <footer className="mt-24 pt-8 border-t border-[#4f5863]/40 text-[#5f6b78] text-[10px] text-center font-mono tracking-[0.2em]">
           {`© DEUNIVERSE ｜ AUTHORIZED_PERSONNEL_ONLY`}
         </footer>
+
+        <button
+         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}
+         className="fixed bottom-4 right-4 z-50 text-[#5f6b78]/55 hover:text-[#23384f] font-mono text-[9px] tracking-[0.25em] transition-all"
+         >
+          ↑ TOP
+        </button>
+
       </div>
     </div>
   );

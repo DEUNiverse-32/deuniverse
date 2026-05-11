@@ -127,6 +127,14 @@ export default function ReportDetailPage({ params }: { params: { slug: string } 
             {`DEUNIVERSE CHARACTER ANALYSIS REPORT`}
           </p>
         </footer>
+
+        <button
+         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}
+         className="fixed bottom-4 right-4 z-50 text-[#5f6b78]/55 hover:text-[#23384f] font-mono text-[9px] tracking-[0.25em] transition-all"
+         >
+          ↑ TOP
+        </button>
+
       </div>
     </div>
   );
