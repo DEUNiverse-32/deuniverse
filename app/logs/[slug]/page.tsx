@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { russianRoulette } from '@/lib/posts/russianroulette';
 import { traces } from '@/lib/posts/traces';
@@ -14,7 +16,6 @@ export default function LogDetailPage({ params }: { params: { slug: string } }) 
   };
 
   const post = posts[params.slug];
-  const sections = post.content.split('* * *');
 
   // 에러 처리 (데이터가 없을 때)
   if (!post) {
@@ -31,6 +32,8 @@ export default function LogDetailPage({ params }: { params: { slug: string } }) 
       </div>
     );
   }
+
+  const sections = post.content.split('* * *');
 
   return (
     <div className="min-h-screen bg-[#a8afb7] text-[#111827] p-8 selection:bg-[#5f6b78] selection:text-slate-950">
