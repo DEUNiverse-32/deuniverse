@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react'; // React 기능을 쓰기 위해 추가
 import Link from 'next/link';
 import { choijaeyoung } from '@/lib/posts/choijaeyoung';
