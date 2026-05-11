@@ -31,13 +31,13 @@ export default function ProfileDetailPage({ params }: { params: { slug: string }
         <div className="relative border border-[#4f5863] bg-[#8f98a3]/35 backdrop-blur-2xl p-6 md:p-14 shadow-[0_0_28px_rgba(0,0,0,0.10)] overflow-hidden">
           <div className="absolute inset-0 opacity-[0.02] mix-blend-multiply pointer-events-none bg-[url('/noisy-background.jpg')]" />
           <div className="absolute inset-0 opacity-[0.07] pointer-events-none select-none overflow-hidden">
-            <div className="absolute inset-[-35%] -rotate-12 text-[10px] text-[#5f6b78] tracking-[0.08em] leading-4 blur-[0.4px]">
+            <div className="absolute inset-[-60%] md:inset-[-35] -rotate-12 text-[9px] text-[#5f6b78] tracking-[0.08em] md:tracking-[0.08em] leading-4 blur-[0.4px] min-w-[180%]">
               {Array(80).fill(null).map((_, i) => (
                 <div
                   key={i}
                   className={`whitespace-nowrap ${i % 2 === 0 ? 'translate-x-0 opacity-70' : 'translate-x-24 opacity-45'}`}
                 >  
-                  {"TAEHON_SECURE_ID DEUNIVERSE_PROTOCOL CLASSIFIED_ARCHIVE SUBJECT_DATA_STREAM TAEHON_DATABASE INTERNAL_ACCESS_NODE ARCHIVE_SIGNAL IDENTITY_VERIFICATION PRIVATE LOG".repeat(6)}
+                  {"TAEHON_SECURE_ID DEUNIVERSE_PROTOCOL CLASSIFIED_ARCHIVE SUBJECT_DATA_STREAM TAEHON_DATABASE INTERNAL_ACCESS_NODE ARCHIVE_SIGNAL IDENTITY_VERIFICATION PRIVATE LOG".repeat(12)}
                 </div>
               ))}
             </div>  
